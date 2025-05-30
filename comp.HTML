@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mes Compétences</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2E5C2E;
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .nav-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: white;
+      border: none;
+      padding: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 80px 20px;
+      transition: 0.3s;
+      z-index: 999;
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    .nav-menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 20px 0;
+      border: 2px solid white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .container {
+      padding: 80px 20px 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .skills-text {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 60px;
+    }
+
+    .skills-text p {
+      margin-bottom: 15px;
+    }
+
+    .logo-section {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .logo-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #1b3a1b;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid white;
+    }
+
+    .logo-circle img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+
+    form {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    form input, form textarea, form button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    form input, form textarea {
+      background-color: #fff;
+      color: #000;
+    }
+
+    form button {
+      background-color: #3C8C3C;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #2e702e;
+    }
+
+    @media (max-width: 600px) {
+      .logo-section {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Hamburger -->
+  <button class="nav-btn">☰</button>
+  <nav class="nav-menu">
+    <a href="index.html">Accueil</a>
+    <a href="apropos.html">À propos</a>
+    <a href="don.html">Faire un don</a>
+  </nav>
+
+  <div class="container">
+    <h1>Mes Compétences</h1>
+
+    <div class="skills-text">
+      <p><strong>Développement web :</strong> Je maîtrise HTML, CSS et JavaScript à un niveau intermédiaire. Je conçois des interfaces web fluides, responsives et bien structurées.</p>
+
+      <p><strong>Travail en équipe :</strong> J’ai acquis des compétences solides en collaboration, gestion de projets, communication, et utilisation d’outils comme GitHub.</p>
+
+      <p><strong>Créativité & UI :</strong> Passionné de design, je suis capable de transformer une idée en une interface visuellement plaisante et fonctionnelle.</p>
+
+      <p><strong>Autres outils :</strong> Je continue d’apprendre React, PHP, Tailwind et d’autres bibliothèques utiles pour améliorer mes projets web.</p>
+    </div>
+
+    <!-- Logos en cercles -->
+    <h2>Technologies principales</h2>
+    <div class="logo-section">
+      <div class="logo-circle">
+        <img src="img/html-logo.png" alt="HTML" />
+      </div>
+      <div class="logo-circle">
+        <img src="img/css-logo.png" alt="CSS" />
+      </div>
+      <div class="logo-circle">
+        <img src="img/js-logo.png" alt="JavaScript" />
+      </div>
+    </div>
+
+    <!-- Formulaire -->
+    <h2>Me laisser un message</h2>
+    <form>
+      <input type="text" placeholder="Votre nom" required />
+      <input type="email" placeholder="Votre e-mail" required />
+      <textarea rows="4" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+
+  <!-- JS du menu -->
+  <script>
+    const btn = document.querySelector('.nav-btn');
+    const menu = document.querySelector('.nav-menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+</html>

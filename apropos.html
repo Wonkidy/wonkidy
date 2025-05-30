@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>À propos de moi</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+      background-color: black;
+    }
+
+    .nav-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: white;
+      border: none;
+      padding: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 80px 20px;
+      transition: 0.3s;
+      z-index: 999;
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    .nav-menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 20px 0;
+      border: 2px solid white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .section {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      gap: 30px;
+      overflow: hidden;
+    }
+
+    .section .bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .text-block, .gif-block {
+      position: relative;
+      z-index: 2;
+    }
+
+    .text-block {
+      max-width: 500px;
+      background: rgba(0, 0, 0, 0.6); /* noir semi-transparent */
+      padding: 20px;
+      font-size: 1em;
+      color: #f0f0f0;
+      border-radius: 10px;
+    }
+
+    .gif-block img {
+      width: 300px;
+      height: auto;
+      border: none;
+      background: transparent;
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+    .contact {
+      background-color: #222;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .contact a {
+      display: block;
+      color: beige;
+      text-decoration: none;
+      margin: 10px;
+      font-size: 1em;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .gif-block img {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Hamburger -->
+  <button class="nav-btn">☰</button>
+  <nav class="nav-menu">
+    <a href="index.html">Accueil</a>
+    <a href="skills.html">Compétences</a>
+    <a href="donate.html">Faire un don</a>
+  </nav>
+
+  <!-- Bloc 1 -->
+  <section class="section">
+    <img src="image/image1.jfif" alt="Fond 1" class="bg-img" />
+    <div class="gif-block">
+      <img src="image/steve.gif" alt="Moi 1" />
+    </div>
+    <div class="text-block">
+      Je m'appelle Kwon Mputu Leader, un passionné de création digitale et explorateur infatigable du web. Depuis plusieurs années, je me plonge dans les lignes de code comme d'autres plongent dans des romans.
+    </div>
+  </section>
+
+  <!-- Bloc 2 -->
+  <section class="section reverse">
+    <img src="image/image2.jfif" alt="Fond 2" class="bg-img" />
+    <div class="gif-block">
+      <img src="image/crapaud.gif" alt="Moi 2" />
+    </div>
+    <div class="text-block">
+      Créatif dans l’âme, j’ai toujours été attiré par l’art sous toutes ses formes. Le développement web, c’est comme du pixel art : chaque détail compte pour transformer un projet en expérience unique.
+    </div>
+  </section>
+
+  <!-- Bloc 3 -->
+  <section class="section">
+    <img src="image/image3.jfif" alt="Fond 3" class="bg-img" />
+    <div class="gif-block">
+      <img src="image/zombie.gif" alt="Moi 3" />
+    </div>
+    <div class="text-block">
+      Quand je ne code pas, je parcours des mondes virtuels. Je continue à apprendre, expérimenter, et surtout, à m’amuser dans ce vaste univers numérique.
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Me contacter</h2>
+    <a href="mailto:kwonleader29@gmail.com">📧 kwonleader29@gmail.com</a>
+    <a href="discord://discordapp.com/users/735610618236633140" target="_blank">💬 Discord: wonkidy</a>
+    <a href="https://github.com/wonkidy" target="_blank">💻 GitHub: wonkidy</a>
+  </section>
+
+  <script>
+    const btn = document.querySelector('.nav-btn');
+    const menu = document.querySelector('.nav-menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+</html>
